@@ -1,21 +1,16 @@
 import type React from "react"
 import type { Metadata } from "next"
 
-// Cambiamos las fuentes porque Geist y Geist_Mono NO existen en Next 14
-import { Inter, Roboto_Mono } from "next/font/google"
+// Tipografia global en Poppins para todo el proyecto.
+import { Poppins } from "next/font/google"
 
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-// Fuentes reemplazadas por alternativas compatibles
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
-})
-
-const robotoMono = Roboto_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
 })
 
 export const metadata: Metadata = {
@@ -30,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${robotoMono.variable}`}>
+    <html lang="es" className={poppins.variable}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />
