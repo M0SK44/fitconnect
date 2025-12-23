@@ -37,15 +37,25 @@ export default function RegisterPage({ onSwitch }: { onSwitch: () => void }) {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background via-background to-muted p-4">
-      <div className="w-full max-w-md">
+    <div className="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-background p-4">
+      <video
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full scale-105 object-cover"
+        src="/100530-video-720.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      <div aria-hidden="true" className="absolute inset-0 bg-black/20" />
+      <div className="relative z-10 w-full max-w-md">
         {/* Header */}
         <div className="mb-8 text-center">
-          <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-accent p-3">
-            <UserPlus className="h-6 w-6 text-accent-foreground" />
+          <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-primary p-3">
+            <UserPlus className="h-6 w-6 text-primary-foreground" />
           </div>
-          <h1 className="text-3xl font-bold text-foreground">FitConnect</h1>
-          <p className="mt-2 text-muted-foreground">Crea tu cuenta</p>
+          <h1 className="text-3xl font-bold text-white">FitConnect</h1>
+          <p className="mt-2 text-white">Crea tu cuenta</p>
         </div>
 
         {/* Register Form */}
@@ -140,7 +150,7 @@ export default function RegisterPage({ onSwitch }: { onSwitch: () => void }) {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full rounded-lg bg-accent px-4 py-2.5 font-medium text-accent-foreground hover:bg-accent/90 disabled:opacity-50 transition-smooth flex items-center justify-center gap-2"
+              className="w-full rounded-lg bg-primary px-4 py-2.5 font-medium text-primary-foreground hover:bg-primary/90 disabled:opacity-50 transition-smooth flex items-center justify-center gap-2"
             >
               {isLoading ? "Registrando..." : "Crear Cuenta"}
             </button>
@@ -148,7 +158,7 @@ export default function RegisterPage({ onSwitch }: { onSwitch: () => void }) {
         </form>
 
         {/* Login Link */}
-        <p className="mt-6 text-center text-sm text-muted-foreground">
+        <p className="mt-6 text-center text-sm text-white">
           ¿Ya tienes cuenta?{" "}
           <button onClick={onSwitch} className="text-primary hover:text-primary/80 font-medium transition-smooth">
             Inicia sesión
